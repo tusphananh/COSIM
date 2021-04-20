@@ -16,6 +16,7 @@ class MainFrame(qtw.QWidget):
 
         self.show()
 
+    # Execute Frame where contains the execute or debug features.
     def executeFrame(self):
         executeButtons = qtw.QWidget()
         executeButtons.setLayout(qtw.QVBoxLayout())
@@ -24,12 +25,14 @@ class MainFrame(qtw.QWidget):
         runButton.setMaximumHeight(50)
         self.layout().addWidget(runButton)
 
+    # This is coding Frame used to code our Language
     def codeFrame(self):
         codeTextArea = qtw.QWidget()
         codeTextArea.setLayout(qtw.QVBoxLayout())
         codeArea = qtw.QPlainTextEdit()
         self.layout().addWidget(codeArea)
 
+    # This is the output and terminal section where print out results or error
     def resultFrame(self):
         terminal = qtw.QLabel("Terminal")
         output = qtw.QLabel("Output")
