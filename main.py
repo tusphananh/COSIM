@@ -1,8 +1,9 @@
-from PyQt5 import QtWidgets
 import PyQt5.QtWidgets as qtw
-import sys
 
 
+# Install these libs in terminal
+# pip install pyqt5
+# MainFrame here
 class MainFrame(qtw.QWidget):
     def __init__(self):
         super().__init__()
