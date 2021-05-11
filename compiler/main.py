@@ -1,12 +1,12 @@
-from compiler.interpreter.interpreter.interpreter import Interpreter
-from compiler.interpreter.lexical_analysis.lexer import Lexer
-from compiler.interpreter.syntax_analysis.parser import Parser
-from compiler.interpreter.syntax_analysis.parser import SyntaxError
-from compiler.interpreter.syntax_analysis.tree import *
+from interpreter.interpreter.interpreter import Interpreter
+from interpreter.lexical_analysis.lexer import Lexer
+from interpreter.syntax_analysis.parser import Parser
+from interpreter.syntax_analysis.parser import SyntaxError
+from interpreter.syntax_analysis.tree import *
 import ast
 
 if __name__=='__main__':
-    code = open('example.c', 'r').read()
+    code = open('compiler/example.c', 'r').read()
     Interpreter.run(code)
 
     lexer = Lexer(code)
