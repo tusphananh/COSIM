@@ -1,9 +1,9 @@
 import argparse
 import textwrap
 
-from interpreter.lexical_analysis.lexer import Lexer
-from interpreter.syntax_analysis.parser import Parser
-from interpreter.syntax_analysis.tree import NodeVisitor
+from compiler.interpreter.lexical_analysis.lexer import Lexer
+from compiler.interpreter.syntax_analysis.parser import Parser
+from compiler.interpreter.syntax_analysis.tree import NodeVisitor
 
 
 class ASTVisualizer(NodeVisitor):

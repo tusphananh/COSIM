@@ -1,11 +1,11 @@
-from .memory import *
-from .number import Number
-from ..lexical_analysis.lexer import Lexer
-from ..lexical_analysis.token_type import *
-from ..syntax_analysis.parser import Parser
-from ..syntax_analysis.tree import *
-from ..semantic_analysis.analyzer import SemanticAnalyzer
-from ..utils.utils import get_functions, MessageColor
+from compiler.interpreter.interpreter.memory import *
+from compiler.interpreter.interpreter.number import Number
+from compiler.interpreter.lexical_analysis.lexer import Lexer
+from compiler.interpreter.lexical_analysis.token_type import *
+from compiler.interpreter.syntax_analysis.parser import Parser
+from compiler.interpreter.syntax_analysis.tree import *
+from compiler.interpreter.semantic_analysis.analyzer import SemanticAnalyzer
+from compiler.interpreter.utils.utils import get_functions, MessageColor
 
 class Interpreter(NodeVisitor):
 

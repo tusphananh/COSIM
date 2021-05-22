@@ -2,8 +2,8 @@
 This module file supports basic functions from stdio.h library
 """
 
-from ..utils.utils import definition
-from ..interpreter.number import Number
+from compiler.interpreter.utils.utils import definition
+from compiler.interpreter.interpreter.number import Number
 
 @definition(return_type='int', arg_types=None)
 def printf(*args):
