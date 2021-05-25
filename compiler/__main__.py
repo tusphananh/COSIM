@@ -22,48 +22,34 @@ class MainFrame(qtw.QWidget):
         self.process.setProgram(sys.executable)
         self.process.readyReadStandardOutput.connect(self.on_readyReadStandardOutput)
         self.process.readyReadStandardError.connect(self.on_readyReadStandardError)
-        self.setWindowTitle("COSIM")
+        self.setWindowTitle("INPUT-OUTPUT")
         self.resize(1000, 500)
         self.setLayout(qtw.QVBoxLayout())
-        self.executeFrame()
-        self.codeFrame()
         self.resultFrame()
-
-    # Execute Frame where contains the execute or debug features.
-    def executeFrame(self):
-        self.executeButtons = qtw.QWidget()
-        self.executeButtons.setLayout(qtw.QVBoxLayout())
-        self.runButton = qtw.QPushButton('Run')
-        self.runButton.clicked.connect(self.onCicked)
-        self.runButton.setMaximumWidth(100)
-        self.runButton.setMaximumHeight(50)
-        self.layout().addWidget(self.runButton)
-
-    # This is coding Frame used to code our Language
-    def codeFrame(self):
-        self.codeTextArea = qtw.QWidget()
-        self.codeTextArea.setLayout(qtw.QVBoxLayout())
-        self.codeArea = qtw.QPlainTextEdit()
-        self.layout().addWidget(self.codeArea)
 
     # This is the output and terminal section where print out results or error
     def resultFrame(self):
+        #input output label
+        self.inLabel = qtw.QLabel()
+        self.inLabel.setText('Input')
+        self.outLabel = qtw.QLabel()
+        self.outLabel.setText('Output')
+        #output text area
         self.outText = qtw.QPlainTextEdit()
         self.outText.setReadOnly(True)
+        #input text line
         self.inText = qtw.QLineEdit()
+        #add widget to layout
+        self.layout().addWidget(self.inLabel)
         self.layout().addWidget(self.inText)
+        self.layout().addWidget(self.outLabel)
         self.layout().addWidget(self.outText)
         self.inText.editingFinished.connect(self.on_editingFinished)
 
 
-
-    def onCicked(self):
-        self.outText.clear()
-        code= self.codeArea.toPlainText()
-        self.process.start()
-
     @QtCore.pyqtSlot()
     def on_readyReadStandardOutput(self):
+        self.outText.clear()
         out = self.process.readAllStandardOutput().data().decode()
         self.outText.insertPlainText(out)
 
@@ -79,6 +65,7 @@ class MainFrame(qtw.QWidget):
 
     def runFile(self, url):
         self.process.setArguments([url])
+        self.process.start()
 
 
 if __name__ == '__main__':
